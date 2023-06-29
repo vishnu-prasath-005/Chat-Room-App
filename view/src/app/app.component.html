@@ -1,0 +1,12 @@
+<div *ngIf="roomList; else noRoom"> 
+<div  *ngFor="let data of roomList">
+ <button (click)="navigateRoom(data.roomId)" class="btn">{{data.roomName |uppercase}}</button>
+</div>
+</div>
+
+<div>
+<router-outlet></router-outlet>
+</div>
+<ng-template #noRoom>
+<h1>No Room Available</h1>
+</ng-template>

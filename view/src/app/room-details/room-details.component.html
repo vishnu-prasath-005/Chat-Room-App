@@ -1,0 +1,18 @@
+<div class="room">
+<h1>Welcome to Room{{roomId}}</h1>
+<h1 *ngIf="isLoading">loading.......</h1>
+<div *ngIf="postList.length && !isLoading;else noPost"></div>
+<div  *ngFor="let post of postList">
+<h3>{{post.post}}</h3>
+</div>
+<ng-template #noPost>
+    <h2>No post available</h2>
+</ng-template>
+<div>
+<form [formGroup]="postForm">
+ 
+<textarea required [(ngModel)]="post" formControlName="postData" rows="5" cols="40"></textarea>
+<button class="btn" (click)="addPost()" [disabled]="!postForm.valid">Add Post</button>
+</form>
+</div>
+</div>
